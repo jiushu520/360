@@ -21,13 +21,19 @@
         .tool-bar {
             width: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
         }
-        .tool-group, .color-group, .thickness-group {
-            margin-right: 20px;
+        .tool-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .color-thickness-group {
+            margin-bottom: 10px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -81,6 +87,11 @@
             margin: 10px;
             width: 100%;
         }
+        .thickness-group span {
+            display: inline-block;
+            width: 25px;
+            text-align: center;
+        }
         .custom-cursor-pen {
             cursor: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjIwIiB3aWR0aD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNSAxMEwxNyAxMCw4IDIxTDEwIDUsMTUgMTUwLDE1IDE1VDEwVjEwWiIvPjwvc3ZnPg=='), auto;
         }
@@ -114,19 +125,21 @@
                 <button id="undo">撤销</button>
                 <button id="redo">重做</button>
             </div>
-            <div class="color-group">
-                <button id="black" class="color-button selected-color" style="background-color: black; color: white;"></button>
-                <button id="red" class="color-button" style="background-color: red;"></button>
-                <button id="blue" class="color-button" style="background-color: blue; color: white;"></button>
-                <button id="green" class="color-button" style="background-color: green; color: white;"></button>
-                <button id="yellow" class="color-button" style="background-color: yellow;"></button>
-                <button id="customColor" class="color-picker">
-                    <input type="color" id="customColorInput" title="选择颜色">
-                </button>
-            </div>
-            <div class="thickness-group">
-                <input type="range" id="thicknessSlider" class="slider" min="1" max="50" value="5">
-                <span id="thicknessValue">5</span>
+            <div class="color-thickness-group">
+                <div class="color-group">
+                    <button id="black" class="color-button selected-color" style="background-color: black; color: white;"></button>
+                    <button id="red" class="color-button" style="background-color: red;"></button>
+                    <button id="blue" class="color-button" style="background-color: blue; color: white;"></button>
+                    <button id="green" class="color-button" style="background-color: green; color: white;"></button>
+                    <button id="yellow" class="color-button" style="background-color: yellow;"></button>
+                    <button id="customColor" class="color-picker">
+                        <input type="color" id="customColorInput" title="选择颜色">
+                    </button>
+                </div>
+                <div class="thickness-group">
+                    <input type="range" id="thicknessSlider" class="slider" min="1" max="50" value="5">
+                    <span id="thicknessValue">5</span>
+                </div>
             </div>
         </div>
         <div class="canvas-container">
