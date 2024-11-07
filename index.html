@@ -38,40 +38,5 @@
             <iframe src="./tu.html"></iframe>
         </div>
     </div>
-
-    <!-- 一键发送画布内容按钮 -->
-    <button id="copyAndSendButton" style="position: fixed; top: 10px; right: 10px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-        一键发送画布内容
-    </button>
-
-    <script>
-        document.getElementById("copyAndSendButton").addEventListener("click", async () => {
-    // 获取 draw.html 中的画布内容
-    const drawIframe = document.querySelector(".left-container iframe").contentWindow;
-    const canvas = drawIframe.document.getElementById("drawingCanvas");
-    const textInput = document.querySelector(".right-container iframe").contentWindow.document.getElementById("textInput");
-    const sendButton = document.querySelector(".right-container iframe").contentWindow.document.getElementById("sendBtn");
-
-    // 创建临时画布，将内容拷贝成 Base64 图像
-    const tempCanvas = document.createElement("canvas");
-    tempCanvas.width = canvas.width;
-    tempCanvas.height = canvas.height;
-    const tempCtx = tempCanvas.getContext("2d");
-    tempCtx.drawImage(canvas, 0, 0);
-
-    // 将内容转为Base64格式并插入输入框
-    const base64Image = tempCanvas.toDataURL("image/png");
-    const imgTag = `<img src="${base64Image}" style="max-width:100%; max-height:200px;">`;
-    textInput.innerHTML = imgTag;
-
-    // 调试日志
-    console.log("Image copied to input:", imgTag);
-
-    // 启用发送按钮并模拟点击发送
-    sendButton.disabled = false;
-    sendButton.click();
-});
-
-    </script>
 </body>
 </html>
