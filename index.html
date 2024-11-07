@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右分栏页面</title>
+    <style>
+        /* 页面整体布局 */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 左边和右边容器样式 */
+        .left-container, .right-container {
+            flex: 1;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        /* 让iframe充满整个容器 */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左边容器 -->
+        <div class="left-container">
+            <iframe src="https://jiushu520.github.io/draw/"></iframe>
+        </div>
+
+        <!-- 右边容器 -->
+        <div class="right-container">
+            <iframe src="https://jiushu520.github.io/tu/"></iframe>
+        </div>
+    </div>
+</body>
+</html>
